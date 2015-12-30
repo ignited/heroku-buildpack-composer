@@ -16,4 +16,5 @@ echo "--- Adding Composer Auth {$COMPOSER_HOME/auth.json}"
 #cause php
 AUTH=$(echo -n "$COMPOSER_AUTH" | base64 --decode)
 
+mkdir -p $COMPOSER_HOME
 echo $AUTH > $COMPOSER_HOME/auth.json
