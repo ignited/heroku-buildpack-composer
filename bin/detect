@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
-echo 'heroku-pdftk-buildpack'
+echo 'heroku-buildpack-composer'
 exit 0

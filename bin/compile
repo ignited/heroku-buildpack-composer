@@ -1,7 +1,16 @@
-#!/usr/bin/env ruby
-# sync output
-$stdout.sync = true
+#!/usr/bin/env bash
 
-$:.unshift File.expand_path("../../lib", __FILE__)
-require "base_custom"
-BaseCustom.compile(ARGV[0], ARGV[1])
+# fail hard
+set -o pipefail
+# fail harder
+set -eu
+# move hidden files too, just in case
+
+shopt -s dotglob
+BUILD_DIR=$1
+CACHE_DIR=$2/php
+export COMPOSER_HOME=$CACHE_DIR/.composer
+
+echo "--- Adding Composer Auth {$COMPOSER_HOME/auth.json}"
+
+echo $COMPOSER_AUTH > $COMPOSER_HOME/auth.json
