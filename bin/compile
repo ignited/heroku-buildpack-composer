@@ -14,6 +14,6 @@ export COMPOSER_HOME=$CACHE_DIR/.composer
 echo "--- Adding Composer Auth {$COMPOSER_HOME/auth.json}"
 
 #cause php
-AUTH=$(php -r 'echo base64_decode($argv[1]);' $COMPOSER_AUTH)
+AUTH=$(echo -n "$COMPOSER_AUTH" | openssl enc -base64)
 
 echo $AUTH > $COMPOSER_HOME/auth.json
