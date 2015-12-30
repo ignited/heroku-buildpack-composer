@@ -1,3 +1,1 @@
 #!/usr/bin/env bash
-echo "--- Removing Composer Auth {$COMPOSER_HOME/auth.json}"
-rm $COMPOSER_HOME/auth.json
